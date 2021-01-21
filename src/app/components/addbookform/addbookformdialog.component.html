@@ -1,0 +1,97 @@
+<div class='dialog'>
+    <toolbar title='Add Book Form'></toolbar>
+    <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()"> 
+        <div class="formBorder">
+            <div class="formColumn">            
+                <mat-form-field appearance="fill">
+                    <mat-label>isbn</mat-label>
+                    <input
+                    matInput
+                    type="text"
+                    id="isbn"                                        
+                    maxlength="13"
+                    formControlName="isbn"
+                    class="form-control" />
+                </mat-form-field>            
+            
+                <mat-form-field appearance="fill">
+                    <mat-label>title</mat-label>
+                    <input
+                    matInput
+                    type="text"
+                    id="title"
+                    formControlName="title"
+                    class="form-control" />
+                </mat-form-field>
+            
+                <mat-form-field appearance="fill">
+                    <mat-label>subtitle</mat-label>
+                    <input
+                    matInput
+                    type="text"
+                    id="subtitle"
+                    formControlName="subtitle"
+                    class="form-control" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>author</mat-label>
+                    <input
+                    matInput
+                    type="text"
+                    id="author"
+                    formControlName="author"
+                    class="form-control" />
+                </mat-form-field>
+            </div>
+            <div class="formColumn">            
+                <mat-form-field appearance="fill">
+                    <mat-label>year</mat-label>
+                    <input
+                    matInput
+                    type="text"
+                    id="year"                    
+                    maxlength="4"
+                    formControlName="year"
+                    class="form-control" />
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>publisher</mat-label>
+                    
+                    <mat-select matInput id="publisher" formControlName="publisher" class="form-control" [value]="0">
+                        <mat-option matInput *ngFor="let publisher of publishers" [value]="publisher.value">
+                            {{publisher.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field> 
+
+                <mat-form-field appearance="fill">
+                    <mat-label>pages</mat-label>
+                    <input
+                    matInput
+                    type="number"
+                    id="pages"
+                    formControlName="pages"
+                    class="form-control" />
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>website</mat-label>
+                    <input
+                    matInput
+                    type="text"
+                    id="website"
+                    formControlName="website"
+                    class="form-control" />
+                </mat-form-field>
+            </div>
+        </div>  
+        
+        <div class='formSpacer'></div>
+
+        <div class="dialogBottom">                       
+            <button mat-raised-button class="btn btn-primary" type="submit">Add Book</button>                            
+        </div>
+    </form>
+</div>
